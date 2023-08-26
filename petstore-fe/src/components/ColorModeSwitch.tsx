@@ -1,14 +1,23 @@
-import { IconButton } from "@chakra-ui/react";
-import { BsMoonFill } from "react-icons/bs";
+import {
+  HStack,
+  Icon,
+  IconButton,
+  Switch,
+  useColorMode,
+} from "@chakra-ui/react";
+import { MdLightMode, MdDarkMode } from "react-icons/md";
 
 const ColorModeSwitch = () => {
+  const { colorMode, toggleColorMode } = useColorMode();
+
   return (
-    <IconButton
-      aria-label="color mode"
-      icon={<BsMoonFill />}
-      colorScheme="grey.300"
-      variant="ghost"
-    ></IconButton>
+    <Switch
+      isChecked={colorMode == "dark"}
+      onChange={toggleColorMode}
+      colorScheme="teal"
+    >
+      Dark Mode
+    </Switch>
   );
 };
 
